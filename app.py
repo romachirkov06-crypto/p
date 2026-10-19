@@ -7,6 +7,7 @@ import plotly.graph_objects as go
 from datetime import datetime
 from io import BytesIO
 import time
+import os
 
 # ==========================================
 # 1. НАСТРОЙКА СТРАНИЦЫ И КАСТОМНЫЙ CSS
