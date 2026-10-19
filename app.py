@@ -103,12 +103,8 @@ st.markdown("""
 # ==========================================
 if not firebase_admin._apps:
     try:
-        if os.path.exists("key.json"):
-            cred = credentials.Certificate("key.json")
-        else:
-            # Читаем ключ из секретов Streamlit Cloud
-            firebase_config = st.secrets["firebase_key"]
-            cred = credentials.Certificate(dict(firebase_config))
+        # Читаем файл key.json напрямую
+        cred = credentials.Certificate("key.json")
         firebase_admin.initialize_app(cred)
     except Exception as e:
         st.error(f"Ошибка инициализации Firebase: {e}")
