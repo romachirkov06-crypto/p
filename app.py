@@ -105,10 +105,8 @@ st.markdown("""
 if not firebase_admin._apps:
     try:
         if os.path.exists("key.json"):
-            # Для локального запуска
             cred = credentials.Certificate("key.json")
         else:
-            # Для Streamlit Cloud
             firebase_config = st.secrets["firebase_key"]
             cred = credentials.Certificate(dict(firebase_config))
         firebase_admin.initialize_app(cred)
